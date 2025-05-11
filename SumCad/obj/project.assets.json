@@ -1,0 +1,1176 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Microsoft.CSharp/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "Microsoft.DotNet.PlatformAbstractions/3.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyModel/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Encodings.Web": "8.0.0",
+          "System.Text.Json": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyModel.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyModel.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Occt.NET/7.9.0": {
+        "type": "package",
+        "contentFiles": {
+          "contentFiles/cs/any/OcctConfiguration.cs.pp": {
+            "buildAction": "Compile",
+            "codeLanguage": "cs",
+            "copyToOutput": false,
+            "ppOutputPath": "OcctConfiguration.cs"
+          },
+          "contentFiles/vb/any/OcctConfiguration.vb.pp": {
+            "buildAction": "Compile",
+            "codeLanguage": "vb",
+            "copyToOutput": false,
+            "ppOutputPath": "OcctConfiguration.vb"
+          }
+        }
+      },
+      "Silk.NET.Core/2.22.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Microsoft.DotNet.PlatformAbstractions": "3.1.6",
+          "Microsoft.Extensions.DependencyModel": "8.0.0",
+          "System.Memory": "4.5.5",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Silk.NET.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Silk.NET.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Silk.NET.GLFW/2.20.0": {
+        "type": "package",
+        "dependencies": {
+          "Silk.NET.Core": "2.20.0",
+          "Ultz.Native.GLFW": "3.3.9.2"
+        },
+        "compile": {
+          "lib/net5.0/Silk.NET.GLFW.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.GLFW.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Silk.NET.Maths/2.20.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Silk.NET.Maths.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.Maths.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Silk.NET.WebGPU/2.22.0": {
+        "type": "package",
+        "dependencies": {
+          "Silk.NET.Core": "2.22.0"
+        },
+        "compile": {
+          "lib/net5.0/Silk.NET.WebGPU.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.WebGPU.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Silk.NET.WebGPU.Native.WGPU/2.22.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libwgpu_native.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libwgpu_native.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-x64/native/libwgpu_native.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-arm64/native/libwgpu_native.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-x64/native/libwgpu_native.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-arm64/native/wgpu_native.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/wgpu_native.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/wgpu_native.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Silk.NET.Windowing/2.20.0": {
+        "type": "package",
+        "dependencies": {
+          "Silk.NET.Windowing.Common": "2.20.0",
+          "Silk.NET.Windowing.Glfw": "2.20.0"
+        }
+      },
+      "Silk.NET.Windowing.Common/2.20.0": {
+        "type": "package",
+        "dependencies": {
+          "Silk.NET.Core": "2.20.0",
+          "Silk.NET.Maths": "2.20.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Silk.NET.Windowing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Silk.NET.Windowing.Common.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Silk.NET.Windowing.Glfw/2.20.0": {
+        "type": "package",
+        "dependencies": {
+          "Silk.NET.GLFW": "2.20.0",
+          "Silk.NET.Windowing.Common": "2.20.0"
+        },
+        "compile": {
+          "lib/net5.0/Silk.NET.Windowing.Glfw.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.Windowing.Glfw.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "System.Text.Encodings.Web/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
+            "assetType": "runtime",
+            "rid": "browser"
+          }
+        }
+      },
+      "System.Text.Json/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Encodings.Web": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/System.Text.Json.targets": {}
+        }
+      },
+      "Ultz.Native.GLFW/3.3.9.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libglfw.so.3": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-arm64/native/libglfw.3.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-x64/native/libglfw.3.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-arm64/native/glfw3.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/glfw3.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/glfw3.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "type": "package",
+      "path": "microsoft.csharp/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.DotNet.PlatformAbstractions/3.1.6": {
+      "sha512": "jek4XYaQ/PGUwDKKhwR8K47Uh1189PFzMeLqO83mXrXQVIpARZCcfuDedH50YDTepBkfijCZN5U/vZi++erxtg==",
+      "type": "package",
+      "path": "microsoft.dotnet.platformabstractions/3.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/net45/Microsoft.DotNet.PlatformAbstractions.xml",
+        "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.xml",
+        "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.xml",
+        "microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
+        "microsoft.dotnet.platformabstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.DependencyModel/8.0.0": {
+      "sha512": "NSmDw3K0ozNDgShSIpsZcbFIzBX4w28nDag+TfaQujkXGazBm+lid5onlWoCBy4VsLxqnnKjEBbGSJVWJMf43g==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencymodel/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyModel.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyModel.targets",
+        "lib/net462/Microsoft.Extensions.DependencyModel.dll",
+        "lib/net462/Microsoft.Extensions.DependencyModel.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyModel.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyModel.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyModel.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyModel.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyModel.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyModel.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.xml",
+        "microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencymodel.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Occt.NET/7.9.0": {
+      "sha512": "EfKqjDi2DNvwPTvCwiZNKnUiCqPcbBqQ4RK0880nDKgeu03tlgwY8z0gwp2q9Ga4kXx0ZPlgCM30MU5aoBRCjA==",
+      "type": "package",
+      "path": "occt.net/7.9.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net40/Occt.NET.props",
+        "build/net40/Occt.NET.targets",
+        "build/net6.0-windows7.0/Occt.NET.props",
+        "build/net6.0-windows7.0/Occt.NET.targets",
+        "build/net8.0-windows7.0/Occt.NET.props",
+        "build/net8.0-windows7.0/Occt.NET.targets",
+        "build/occt/x64/FreeImage.dll",
+        "build/occt/x64/Qt5Core.dll",
+        "build/occt/x64/Qt5Gui.dll",
+        "build/occt/x64/Qt5Widgets.dll",
+        "build/occt/x64/TKBO.dll",
+        "build/occt/x64/TKBRep.dll",
+        "build/occt/x64/TKBin.dll",
+        "build/occt/x64/TKBinL.dll",
+        "build/occt/x64/TKBinTObj.dll",
+        "build/occt/x64/TKBinXCAF.dll",
+        "build/occt/x64/TKBool.dll",
+        "build/occt/x64/TKCAF.dll",
+        "build/occt/x64/TKCDF.dll",
+        "build/occt/x64/TKD3DHost.dll",
+        "build/occt/x64/TKD3DHostTest.dll",
+        "build/occt/x64/TKDCAF.dll",
+        "build/occt/x64/TKDE.dll",
+        "build/occt/x64/TKDECascade.dll",
+        "build/occt/x64/TKDEGLTF.dll",
+        "build/occt/x64/TKDEIGES.dll",
+        "build/occt/x64/TKDEOBJ.dll",
+        "build/occt/x64/TKDEPLY.dll",
+        "build/occt/x64/TKDESTEP.dll",
+        "build/occt/x64/TKDESTL.dll",
+        "build/occt/x64/TKDEVRML.dll",
+        "build/occt/x64/TKDraw.dll",
+        "build/occt/x64/TKExpress.dll",
+        "build/occt/x64/TKFeat.dll",
+        "build/occt/x64/TKFillet.dll",
+        "build/occt/x64/TKG2d.dll",
+        "build/occt/x64/TKG3d.dll",
+        "build/occt/x64/TKGeomAlgo.dll",
+        "build/occt/x64/TKGeomBase.dll",
+        "build/occt/x64/TKHLR.dll",
+        "build/occt/x64/TKLCAF.dll",
+        "build/occt/x64/TKMath.dll",
+        "build/occt/x64/TKMesh.dll",
+        "build/occt/x64/TKMeshVS.dll",
+        "build/occt/x64/TKOffset.dll",
+        "build/occt/x64/TKOpenGl.dll",
+        "build/occt/x64/TKOpenGlTest.dll",
+        "build/occt/x64/TKPrim.dll",
+        "build/occt/x64/TKQADraw.dll",
+        "build/occt/x64/TKRWMesh.dll",
+        "build/occt/x64/TKService.dll",
+        "build/occt/x64/TKShHealing.dll",
+        "build/occt/x64/TKStd.dll",
+        "build/occt/x64/TKStdL.dll",
+        "build/occt/x64/TKTObj.dll",
+        "build/occt/x64/TKTObjDRAW.dll",
+        "build/occt/x64/TKTopAlgo.dll",
+        "build/occt/x64/TKTopTest.dll",
+        "build/occt/x64/TKV3d.dll",
+        "build/occt/x64/TKVCAF.dll",
+        "build/occt/x64/TKViewerTest.dll",
+        "build/occt/x64/TKXCAF.dll",
+        "build/occt/x64/TKXDEDRAW.dll",
+        "build/occt/x64/TKXMesh.dll",
+        "build/occt/x64/TKXSBase.dll",
+        "build/occt/x64/TKXSDRAW.dll",
+        "build/occt/x64/TKXSDRAWDE.dll",
+        "build/occt/x64/TKXSDRAWGLTF.dll",
+        "build/occt/x64/TKXSDRAWIGES.dll",
+        "build/occt/x64/TKXSDRAWOBJ.dll",
+        "build/occt/x64/TKXSDRAWPLY.dll",
+        "build/occt/x64/TKXSDRAWSTEP.dll",
+        "build/occt/x64/TKXSDRAWSTL.dll",
+        "build/occt/x64/TKXSDRAWVRML.dll",
+        "build/occt/x64/TKXml.dll",
+        "build/occt/x64/TKXmlL.dll",
+        "build/occt/x64/TKXmlTObj.dll",
+        "build/occt/x64/TKXmlXCAF.dll",
+        "build/occt/x64/TKernel.dll",
+        "build/occt/x64/TxLib.dll",
+        "build/occt/x64/TxOcct.dll",
+        "build/occt/x64/avcodec-58.dll",
+        "build/occt/x64/avdevice-58.dll",
+        "build/occt/x64/avfilter-7.dll",
+        "build/occt/x64/avformat-58.dll",
+        "build/occt/x64/avutil-56.dll",
+        "build/occt/x64/freetype.dll",
+        "build/occt/x64/libGLESv2.dll",
+        "build/occt/x64/libbz2.dll",
+        "build/occt/x64/libpng16.dll",
+        "build/occt/x64/msvcp140.dll",
+        "build/occt/x64/msvcp140_1.dll",
+        "build/occt/x64/openvr_api.dll",
+        "build/occt/x64/postproc-55.dll",
+        "build/occt/x64/swresample-3.dll",
+        "build/occt/x64/swscale-5.dll",
+        "build/occt/x64/tbb12.dll",
+        "build/occt/x64/tbbbind.dll",
+        "build/occt/x64/tbbbind_2_0.dll",
+        "build/occt/x64/tbbbind_2_5.dll",
+        "build/occt/x64/tbbmalloc.dll",
+        "build/occt/x64/tbbmalloc_proxy.dll",
+        "build/occt/x64/tcl86t.dll",
+        "build/occt/x64/tk86t.dll",
+        "build/occt/x64/vcruntime140.dll",
+        "build/occt/x64/vcruntime140_1.dll",
+        "build/occt/x64/zlib.dll",
+        "build/occt/x64/zlib1.dll",
+        "build/occt/x86/FreeImage.dll",
+        "build/occt/x86/Qt5Core.dll",
+        "build/occt/x86/Qt5Gui.dll",
+        "build/occt/x86/Qt5Widgets.dll",
+        "build/occt/x86/TKBO.dll",
+        "build/occt/x86/TKBRep.dll",
+        "build/occt/x86/TKBin.dll",
+        "build/occt/x86/TKBinL.dll",
+        "build/occt/x86/TKBinTObj.dll",
+        "build/occt/x86/TKBinXCAF.dll",
+        "build/occt/x86/TKBool.dll",
+        "build/occt/x86/TKCAF.dll",
+        "build/occt/x86/TKCDF.dll",
+        "build/occt/x86/TKD3DHost.dll",
+        "build/occt/x86/TKD3DHostTest.dll",
+        "build/occt/x86/TKDCAF.dll",
+        "build/occt/x86/TKDE.dll",
+        "build/occt/x86/TKDECascade.dll",
+        "build/occt/x86/TKDEGLTF.dll",
+        "build/occt/x86/TKDEIGES.dll",
+        "build/occt/x86/TKDEOBJ.dll",
+        "build/occt/x86/TKDEPLY.dll",
+        "build/occt/x86/TKDESTEP.dll",
+        "build/occt/x86/TKDESTL.dll",
+        "build/occt/x86/TKDEVRML.dll",
+        "build/occt/x86/TKDraw.dll",
+        "build/occt/x86/TKExpress.dll",
+        "build/occt/x86/TKFeat.dll",
+        "build/occt/x86/TKFillet.dll",
+        "build/occt/x86/TKG2d.dll",
+        "build/occt/x86/TKG3d.dll",
+        "build/occt/x86/TKGeomAlgo.dll",
+        "build/occt/x86/TKGeomBase.dll",
+        "build/occt/x86/TKHLR.dll",
+        "build/occt/x86/TKLCAF.dll",
+        "build/occt/x86/TKMath.dll",
+        "build/occt/x86/TKMesh.dll",
+        "build/occt/x86/TKMeshVS.dll",
+        "build/occt/x86/TKOffset.dll",
+        "build/occt/x86/TKOpenGl.dll",
+        "build/occt/x86/TKOpenGlTest.dll",
+        "build/occt/x86/TKPrim.dll",
+        "build/occt/x86/TKQADraw.dll",
+        "build/occt/x86/TKRWMesh.dll",
+        "build/occt/x86/TKService.dll",
+        "build/occt/x86/TKShHealing.dll",
+        "build/occt/x86/TKStd.dll",
+        "build/occt/x86/TKStdL.dll",
+        "build/occt/x86/TKTObj.dll",
+        "build/occt/x86/TKTObjDRAW.dll",
+        "build/occt/x86/TKTopAlgo.dll",
+        "build/occt/x86/TKTopTest.dll",
+        "build/occt/x86/TKV3d.dll",
+        "build/occt/x86/TKVCAF.dll",
+        "build/occt/x86/TKViewerTest.dll",
+        "build/occt/x86/TKXCAF.dll",
+        "build/occt/x86/TKXDEDRAW.dll",
+        "build/occt/x86/TKXMesh.dll",
+        "build/occt/x86/TKXSBase.dll",
+        "build/occt/x86/TKXSDRAW.dll",
+        "build/occt/x86/TKXSDRAWDE.dll",
+        "build/occt/x86/TKXSDRAWGLTF.dll",
+        "build/occt/x86/TKXSDRAWIGES.dll",
+        "build/occt/x86/TKXSDRAWOBJ.dll",
+        "build/occt/x86/TKXSDRAWPLY.dll",
+        "build/occt/x86/TKXSDRAWSTEP.dll",
+        "build/occt/x86/TKXSDRAWSTL.dll",
+        "build/occt/x86/TKXSDRAWVRML.dll",
+        "build/occt/x86/TKXml.dll",
+        "build/occt/x86/TKXmlL.dll",
+        "build/occt/x86/TKXmlTObj.dll",
+        "build/occt/x86/TKXmlXCAF.dll",
+        "build/occt/x86/TKernel.dll",
+        "build/occt/x86/TxLib.dll",
+        "build/occt/x86/TxOcct.dll",
+        "build/occt/x86/avcodec-58.dll",
+        "build/occt/x86/avdevice-58.dll",
+        "build/occt/x86/avfilter-7.dll",
+        "build/occt/x86/avformat-58.dll",
+        "build/occt/x86/avutil-56.dll",
+        "build/occt/x86/freetype.dll",
+        "build/occt/x86/libGLESv2.dll",
+        "build/occt/x86/libbz2.dll",
+        "build/occt/x86/libpng16.dll",
+        "build/occt/x86/msvcp140.dll",
+        "build/occt/x86/msvcp140_1.dll",
+        "build/occt/x86/openvr_api.dll",
+        "build/occt/x86/postproc-55.dll",
+        "build/occt/x86/swresample-3.dll",
+        "build/occt/x86/swscale-5.dll",
+        "build/occt/x86/tbb12.dll",
+        "build/occt/x86/tbbbind.dll",
+        "build/occt/x86/tbbbind_2_0.dll",
+        "build/occt/x86/tbbbind_2_5.dll",
+        "build/occt/x86/tbbmalloc.dll",
+        "build/occt/x86/tbbmalloc_proxy.dll",
+        "build/occt/x86/tcl86t.dll",
+        "build/occt/x86/tk86t.dll",
+        "build/occt/x86/vcruntime140.dll",
+        "build/occt/x86/zlib.dll",
+        "build/occt/x86/zlib1.dll",
+        "content/OcctConfiguration.cs.pp",
+        "content/OcctConfiguration.vb.pp",
+        "contentFiles/cs/any/OcctConfiguration.cs.pp",
+        "contentFiles/vb/any/OcctConfiguration.vb.pp",
+        "lib/net40/Occt.NET.dll",
+        "lib/net40/Occt.NET.xml",
+        "lib/net40/x64/Occt.NET.dll",
+        "lib/net40/x64/Occt.NET.xml",
+        "lib/net40/x86/Occt.NET.dll",
+        "lib/net40/x86/Occt.NET.xml",
+        "lib/net6.0-windows7.0/Occt.NET.dll",
+        "lib/net6.0-windows7.0/Occt.NET.xml",
+        "lib/net6.0-windows7.0/x64/Ijwhost.dll",
+        "lib/net6.0-windows7.0/x64/Occt.NET.dll",
+        "lib/net6.0-windows7.0/x64/Occt.NET.xml",
+        "lib/net6.0-windows7.0/x86/Ijwhost.dll",
+        "lib/net6.0-windows7.0/x86/Occt.NET.dll",
+        "lib/net6.0-windows7.0/x86/Occt.NET.xml",
+        "lib/net8.0-windows7.0/Occt.NET.dll",
+        "lib/net8.0-windows7.0/Occt.NET.xml",
+        "lib/net8.0-windows7.0/x64/Ijwhost.dll",
+        "lib/net8.0-windows7.0/x64/Occt.NET.dll",
+        "lib/net8.0-windows7.0/x64/Occt.NET.xml",
+        "lib/net8.0-windows7.0/x86/Ijwhost.dll",
+        "lib/net8.0-windows7.0/x86/Occt.NET.dll",
+        "lib/net8.0-windows7.0/x86/Occt.NET.xml",
+        "occt.net.7.9.0.nupkg.sha512",
+        "occt.net.nuspec",
+        "tools/install.ps1"
+      ]
+    },
+    "Silk.NET.Core/2.22.0": {
+      "sha512": "XbDilPmvsQIrvxZkeVCNNX3LyRtA3hN6UykAiyZjlu/JkYh68U3WQummpP+j7jsxlX8s/pOrrU3vbN8LnMl0VA==",
+      "type": "package",
+      "path": "silk.net.core/2.22.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Silk.NET.Core.dll",
+        "lib/net5.0/Silk.NET.Core.xml",
+        "lib/net6.0/Silk.NET.Core.dll",
+        "lib/net6.0/Silk.NET.Core.xml",
+        "lib/netcoreapp3.1/Silk.NET.Core.dll",
+        "lib/netcoreapp3.1/Silk.NET.Core.xml",
+        "lib/netstandard2.0/Silk.NET.Core.dll",
+        "lib/netstandard2.0/Silk.NET.Core.xml",
+        "lib/netstandard2.1/Silk.NET.Core.dll",
+        "lib/netstandard2.1/Silk.NET.Core.xml",
+        "silk.net.core.2.22.0.nupkg.sha512",
+        "silk.net.core.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "Silk.NET.GLFW/2.20.0": {
+      "sha512": "VCnaHew1xH+j0AxS54zVQNLQ4HJAaTpIFQdPpmMzbJ3XB21zNPV/5MBGhz4PyBgXKEHezjT6NPkYOerbzHqkfA==",
+      "type": "package",
+      "path": "silk.net.glfw/2.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Silk.NET.GLFW.dll",
+        "lib/net5.0/Silk.NET.GLFW.xml",
+        "lib/netcoreapp3.1/Silk.NET.GLFW.dll",
+        "lib/netcoreapp3.1/Silk.NET.GLFW.xml",
+        "lib/netstandard2.0/Silk.NET.GLFW.dll",
+        "lib/netstandard2.0/Silk.NET.GLFW.xml",
+        "lib/netstandard2.1/Silk.NET.GLFW.dll",
+        "lib/netstandard2.1/Silk.NET.GLFW.xml",
+        "silk.net.glfw.2.20.0.nupkg.sha512",
+        "silk.net.glfw.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "Silk.NET.Maths/2.20.0": {
+      "sha512": "m9QxEPE6Y/m7AXTTKBbuy53Proi8k+HlvYa5x/UKbhcAbursIFFOJS8tVfCpRdZ3QGTfKBFlfifzJhByal8Vjw==",
+      "type": "package",
+      "path": "silk.net.maths/2.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Silk.NET.Maths.dll",
+        "lib/net5.0/Silk.NET.Maths.xml",
+        "lib/net6.0-android31.0/Silk.NET.Maths.dll",
+        "lib/net6.0-android31.0/Silk.NET.Maths.xml",
+        "lib/net6.0-ios16.1/Silk.NET.Maths.dll",
+        "lib/net6.0-ios16.1/Silk.NET.Maths.xml",
+        "lib/netcoreapp3.1/Silk.NET.Maths.dll",
+        "lib/netcoreapp3.1/Silk.NET.Maths.xml",
+        "lib/netstandard2.0/Silk.NET.Maths.dll",
+        "lib/netstandard2.0/Silk.NET.Maths.xml",
+        "lib/netstandard2.1/Silk.NET.Maths.dll",
+        "lib/netstandard2.1/Silk.NET.Maths.xml",
+        "silk.net.maths.2.20.0.nupkg.sha512",
+        "silk.net.maths.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "Silk.NET.WebGPU/2.22.0": {
+      "sha512": "exCUhXxBWFlW8pV6krbf5K1ZwbhDtBM2qZa1HJa76CZ4RaMml5crmb1m+9qYERPhiQIEvK0EulCMs6CJ5p8bKQ==",
+      "type": "package",
+      "path": "silk.net.webgpu/2.22.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Silk.NET.WebGPU.dll",
+        "lib/net5.0/Silk.NET.WebGPU.xml",
+        "lib/netcoreapp3.1/Silk.NET.WebGPU.dll",
+        "lib/netcoreapp3.1/Silk.NET.WebGPU.xml",
+        "lib/netstandard2.0/Silk.NET.WebGPU.dll",
+        "lib/netstandard2.0/Silk.NET.WebGPU.xml",
+        "lib/netstandard2.1/Silk.NET.WebGPU.dll",
+        "lib/netstandard2.1/Silk.NET.WebGPU.xml",
+        "silk.net.webgpu.2.22.0.nupkg.sha512",
+        "silk.net.webgpu.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "Silk.NET.WebGPU.Native.WGPU/2.22.0": {
+      "sha512": "b8D5q0HMYL85+vXzudS7VzTwANzOWJqA14EgMIIGd0YqZTbH8tOvk8ND1WZ2G4pEMtbvF8kYpf8kzTzo3g1Qqw==",
+      "type": "package",
+      "path": "silk.net.webgpu.native.wgpu/2.22.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/net461/Silk.NET.WebGPU.Native.WGPU.targets",
+        "buildTransitive/net461/Silk.NET.WebGPU.Native.WGPU.targets",
+        "lib/net461/_._",
+        "lib/netstandard2.0/_._",
+        "runtimes/linux-arm/native/libwgpu_native.so",
+        "runtimes/linux-arm64/native/libwgpu_native.so",
+        "runtimes/linux-x64/native/libwgpu_native.so",
+        "runtimes/osx-arm64/native/libwgpu_native.dylib",
+        "runtimes/osx-x64/native/libwgpu_native.dylib",
+        "runtimes/win-arm64/native/wgpu_native.dll",
+        "runtimes/win-x64/native/wgpu_native.dll",
+        "runtimes/win-x86/native/wgpu_native.dll",
+        "silk.net.webgpu.native.wgpu.2.22.0.nupkg.sha512",
+        "silk.net.webgpu.native.wgpu.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "Silk.NET.Windowing/2.20.0": {
+      "sha512": "49WVTjv9gOWH5tvw/QkDvjCkzj7Mwzp/kc7eXGdAnw7tygcAYithqPnmtnpHryZzs1tOfQzcQiX0cha/IYNhmA==",
+      "type": "package",
+      "path": "silk.net.windowing/2.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "silk.net.windowing.2.20.0.nupkg.sha512",
+        "silk.net.windowing.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "Silk.NET.Windowing.Common/2.20.0": {
+      "sha512": "ZsF5ddWPkQhwAlSBz2PetaBUO64u+pVAP9bOb2oGZlEHp0iH+NxfEN/zswcUntE2Dm9yHB8bdmwVD82MEOwj6Q==",
+      "type": "package",
+      "path": "silk.net.windowing.common/2.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/netstandard2.0/Silk.NET.Windowing.Common.dll",
+        "lib/netstandard2.0/Silk.NET.Windowing.Common.xml",
+        "lib/netstandard2.1/Silk.NET.Windowing.Common.dll",
+        "lib/netstandard2.1/Silk.NET.Windowing.Common.xml",
+        "silk.net.windowing.common.2.20.0.nupkg.sha512",
+        "silk.net.windowing.common.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "Silk.NET.Windowing.Glfw/2.20.0": {
+      "sha512": "6w6QvdAyxeQcaLWqNOrT2juHJD0VAxSdI8Iwx9t5NuaPvJmf5VuVL2JN7zY9bQY2wUpOIEho/b6RoKwbfg5ekw==",
+      "type": "package",
+      "path": "silk.net.windowing.glfw/2.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Silk.NET.Windowing.Glfw.dll",
+        "lib/net5.0/Silk.NET.Windowing.Glfw.xml",
+        "lib/netcoreapp3.1/Silk.NET.Windowing.Glfw.dll",
+        "lib/netcoreapp3.1/Silk.NET.Windowing.Glfw.xml",
+        "lib/netstandard2.0/Silk.NET.Windowing.Glfw.dll",
+        "lib/netstandard2.0/Silk.NET.Windowing.Glfw.xml",
+        "lib/netstandard2.1/Silk.NET.Windowing.Glfw.dll",
+        "lib/netstandard2.1/Silk.NET.Windowing.Glfw.xml",
+        "silk.net.windowing.glfw.2.20.0.nupkg.sha512",
+        "silk.net.windowing.glfw.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
+    "System.Memory/4.5.5": {
+      "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "type": "package",
+      "path": "system.memory/4.5.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.5.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "type": "package",
+      "path": "system.numerics.vectors/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Numerics.Vectors.dll",
+        "lib/net46/System.Numerics.Vectors.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.Numerics.Vectors.dll",
+        "lib/netstandard1.0/System.Numerics.Vectors.xml",
+        "lib/netstandard2.0/System.Numerics.Vectors.dll",
+        "lib/netstandard2.0/System.Numerics.Vectors.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/System.Numerics.Vectors.dll",
+        "ref/net45/System.Numerics.Vectors.xml",
+        "ref/net46/System.Numerics.Vectors.dll",
+        "ref/net46/System.Numerics.Vectors.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/System.Numerics.Vectors.dll",
+        "ref/netstandard1.0/System.Numerics.Vectors.xml",
+        "ref/netstandard2.0/System.Numerics.Vectors.dll",
+        "ref/netstandard2.0/System.Numerics.Vectors.xml",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.numerics.vectors.4.5.0.nupkg.sha512",
+        "system.numerics.vectors.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Encodings.Web/8.0.0": {
+      "sha512": "yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
+      "type": "package",
+      "path": "system.text.encodings.web/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Text.Encodings.Web.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Text.Encodings.Web.targets",
+        "lib/net462/System.Text.Encodings.Web.dll",
+        "lib/net462/System.Text.Encodings.Web.xml",
+        "lib/net6.0/System.Text.Encodings.Web.dll",
+        "lib/net6.0/System.Text.Encodings.Web.xml",
+        "lib/net7.0/System.Text.Encodings.Web.dll",
+        "lib/net7.0/System.Text.Encodings.Web.xml",
+        "lib/net8.0/System.Text.Encodings.Web.dll",
+        "lib/net8.0/System.Text.Encodings.Web.xml",
+        "lib/netstandard2.0/System.Text.Encodings.Web.dll",
+        "lib/netstandard2.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net7.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.xml",
+        "system.text.encodings.web.8.0.0.nupkg.sha512",
+        "system.text.encodings.web.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Json/8.0.0": {
+      "sha512": "OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
+      "type": "package",
+      "path": "system.text.json/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.4/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "buildTransitive/net461/System.Text.Json.targets",
+        "buildTransitive/net462/System.Text.Json.targets",
+        "buildTransitive/net6.0/System.Text.Json.targets",
+        "buildTransitive/netcoreapp2.0/System.Text.Json.targets",
+        "buildTransitive/netstandard2.0/System.Text.Json.targets",
+        "lib/net462/System.Text.Json.dll",
+        "lib/net462/System.Text.Json.xml",
+        "lib/net6.0/System.Text.Json.dll",
+        "lib/net6.0/System.Text.Json.xml",
+        "lib/net7.0/System.Text.Json.dll",
+        "lib/net7.0/System.Text.Json.xml",
+        "lib/net8.0/System.Text.Json.dll",
+        "lib/net8.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.8.0.0.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Ultz.Native.GLFW/3.3.9.2": {
+      "sha512": "4b7gJEfMZcw207CZkFV3VUBagmHlX9jYVkk1mrzacnAOgr90JoZSILTEFPc5lz5LT7yFKxQnsnqqIsFnVO7k/Q==",
+      "type": "package",
+      "path": "ultz.native.glfw/3.3.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/net461/Ultz.Native.GLFW.targets",
+        "lib/net461/_._",
+        "lib/netstandard2.0/_._",
+        "runtimes/linux-x64/native/libglfw.so.3",
+        "runtimes/osx-arm64/native/libglfw.3.dylib",
+        "runtimes/osx-x64/native/libglfw.3.dylib",
+        "runtimes/win-arm64/native/glfw3.dll",
+        "runtimes/win-x64/native/glfw3.dll",
+        "runtimes/win-x86/native/glfw3.dll",
+        "silkdotnet_v3.png",
+        "ultz.native.glfw.3.3.9.2.nupkg.sha512",
+        "ultz.native.glfw.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Occt.NET >= 7.9.0",
+      "Silk.NET.WebGPU >= 2.22.0",
+      "Silk.NET.WebGPU.Native.WGPU >= 2.22.0",
+      "Silk.NET.Windowing >= 2.20.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\micha\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
+      "projectName": "SumCad",
+      "projectPath": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
+      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Occt.NET": {
+            "target": "Package",
+            "version": "[7.9.0, )"
+          },
+          "Silk.NET.WebGPU": {
+            "target": "Package",
+            "version": "[2.22.0, )"
+          },
+          "Silk.NET.WebGPU.Native.WGPU": {
+            "target": "Package",
+            "version": "[2.22.0, )"
+          },
+          "Silk.NET.Windowing": {
+            "target": "Package",
+            "version": "[2.20.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

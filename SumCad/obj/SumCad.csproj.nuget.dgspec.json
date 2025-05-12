@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj": {}
+    "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj": {}
   },
   "projects": {
-    "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj": {
+    "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
+        "projectUniqueName": "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
         "projectName": "SumCad",
-        "projectPath": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
-        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\obj\\",
+        "projectPath": "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
+        "packagesPath": "C:\\Users\\Osprey\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Osprey\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -49,6 +48,10 @@
               "version": "[7.9.0, )"
             },
             "Silk.NET.WebGPU": {
+              "target": "Package",
+              "version": "[2.22.0, )"
+            },
+            "Silk.NET.WebGPU.Extensions.WGPU": {
               "target": "Package",
               "version": "[2.22.0, )"
             },
@@ -77,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Osprey\\.dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

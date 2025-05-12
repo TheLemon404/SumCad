@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using Silk.NET.Maths;
 using Silk.NET.WebGPU;
+using Silk.NET.WebGPU.Extensions.WGPU;
 using Silk.NET.Windowing;
 
 namespace SumCad.Application;
@@ -12,14 +13,15 @@ public unsafe class GraphicsInstance
     private Surface* surface;
     private Adapter* adapter;
 
-    private Queue* queue;
     private CommandEncoder* currentCommandEncoder;
     private SurfaceTexture surfaceTexture;
     private TextureView* surfaceTextureView;
 
     public event Action OnInitialize;
     public event Action OnRender;
+    public event Action OnDispose;
 
+    public Queue* Queue { get; private set; }
     public Device* Device { get; private set; }
     public RenderPassEncoder* CurrentRenderPassEncoder { get; private set; }
     public WebGPU WebGPU { get; private set; }
@@ -33,7 +35,11 @@ public unsafe class GraphicsInstance
 
     private void CreateInstance()
     {
+        InstanceExtras extras = new InstanceExtras();
+        extras.Backends = InstanceBackend.Vulkan;
+        
         InstanceDescriptor descriptor = new InstanceDescriptor();
+        descriptor.NextInChain = &extras.Chain;
         instance = WebGPU.CreateInstance(descriptor);
         Console.WriteLine("Created WebGPU Instance");
     }
@@ -46,10 +52,11 @@ public unsafe class GraphicsInstance
 
     private void CreateAdapter()
     {
-        RequestAdapterOptions options = new RequestAdapterOptions();
-        options.CompatibleSurface = surface;
-        options.BackendType = BackendType.Vulkan;
-        options.PowerPreference = PowerPreference.HighPerformance;
+        RequestAdapterOptions options = new RequestAdapterOptions
+        {
+            CompatibleSurface = surface,
+            PowerPreference = PowerPreference.HighPerformance
+        };
 
         PfnRequestAdapterCallback callback = PfnRequestAdapterCallback.From((status, wgpuAdapter, msgPtr, userDataPtr) =>
         {
@@ -75,7 +82,7 @@ public unsafe class GraphicsInstance
             if (status == RequestDeviceStatus.Success)
             {
                 this.Device = device;
-                Console.WriteLine("Retrieved WebGPU Adapter");
+                Console.WriteLine("Retrieved WebGPU Device");
             }
             else
             {
@@ -95,9 +102,9 @@ public unsafe class GraphicsInstance
         configuration.Width = (uint)silkWindow.Size.X;
         configuration.Height = (uint)silkWindow.Size.Y;
         configuration.Format = PreferredTextureFormat;
-        configuration.PresentMode = PresentMode.Immediate;
+        configuration.PresentMode = PresentMode.Fifo;
         configuration.Usage = TextureUsage.RenderAttachment;
-
+        
         WebGPU.SurfaceConfigure(surface, configuration);
     }
 
@@ -132,10 +139,23 @@ public unsafe class GraphicsInstance
         PostRender();
     }
 
+    private void Window_OnResize(Vector2D<int> size)
+    {
+        SurfaceConfiguration configuration = new SurfaceConfiguration();
+        configuration.Device = Device;
+        configuration.Width = (uint)size.X;
+        configuration.Height = (uint)size.Y;
+        configuration.Format = PreferredTextureFormat;
+        configuration.PresentMode = PresentMode.Fifo;
+        configuration.Usage = TextureUsage.RenderAttachment;
+        
+        WebGPU.SurfaceConfigure(surface, configuration);
+    }
+
     private void PreRender()
     {
         // - QUEUE
-        queue = WebGPU.DeviceGetQueue(Device);
+        Queue = WebGPU.DeviceGetQueue(Device);
 
         // - COMMAND ENCODER
         currentCommandEncoder = WebGPU.DeviceCreateCommandEncoder(Device, null);
@@ -167,7 +187,7 @@ public unsafe class GraphicsInstance
         CommandBuffer* commandBuffer = WebGPU.CommandEncoderFinish(currentCommandEncoder, null);
 
         // - PUT ENCODED COMMAND TO QUEUE
-        WebGPU.QueueSubmit(queue, 1, &commandBuffer);
+        WebGPU.QueueSubmit(Queue, 1, &commandBuffer);
 
         // - PRESENT SURFACE
         WebGPU.SurfacePresent(surface);
@@ -200,6 +220,10 @@ public unsafe class GraphicsInstance
         silkWindow.Load += OnLoad;
         silkWindow.Update += OnUpdate;
         silkWindow.Render += Window_OnRender;
+        silkWindow.Resize += Window_OnResize;
+        
+        // - QUEUE
+        Queue = WebGPU.DeviceGetQueue(Device);
 
         OnInitialize.Invoke();
         
@@ -208,6 +232,8 @@ public unsafe class GraphicsInstance
     
     public void Dispose()
     {
+        OnDispose.Invoke();
+        
         WebGPU.DeviceDestroy(Device);
         Console.WriteLine("WebGPU Device Destroyed");
         WebGPU.SurfaceRelease(surface);

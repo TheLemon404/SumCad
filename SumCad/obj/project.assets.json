@@ -128,6 +128,23 @@
           }
         }
       },
+      "Silk.NET.WebGPU.Extensions.WGPU/2.22.0": {
+        "type": "package",
+        "dependencies": {
+          "Silk.NET.Core": "2.22.0",
+          "Silk.NET.WebGPU": "2.22.0"
+        },
+        "compile": {
+          "lib/net5.0/Silk.NET.WebGPU.Extensions.WGPU.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.WebGPU.Extensions.WGPU.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Silk.NET.WebGPU.Native.WGPU/2.22.0": {
         "type": "package",
         "compile": {
@@ -782,6 +799,27 @@
         "silkdotnet_v3.png"
       ]
     },
+    "Silk.NET.WebGPU.Extensions.WGPU/2.22.0": {
+      "sha512": "Zc7iC3H5UQzppwlfOtHFRMKp5ewYBA83L91lkQU7aCm0+BTs+VpQqgiz3iXlJydlAFwggac4li8aJ5rJya9QKA==",
+      "type": "package",
+      "path": "silk.net.webgpu.extensions.wgpu/2.22.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Silk.NET.WebGPU.Extensions.WGPU.dll",
+        "lib/net5.0/Silk.NET.WebGPU.Extensions.WGPU.xml",
+        "lib/netcoreapp3.1/Silk.NET.WebGPU.Extensions.WGPU.dll",
+        "lib/netcoreapp3.1/Silk.NET.WebGPU.Extensions.WGPU.xml",
+        "lib/netstandard2.0/Silk.NET.WebGPU.Extensions.WGPU.dll",
+        "lib/netstandard2.0/Silk.NET.WebGPU.Extensions.WGPU.xml",
+        "lib/netstandard2.1/Silk.NET.WebGPU.Extensions.WGPU.dll",
+        "lib/netstandard2.1/Silk.NET.WebGPU.Extensions.WGPU.xml",
+        "silk.net.webgpu.extensions.wgpu.2.22.0.nupkg.sha512",
+        "silk.net.webgpu.extensions.wgpu.nuspec",
+        "silkdotnet_v3.png"
+      ]
+    },
     "Silk.NET.WebGPU.Native.WGPU/2.22.0": {
       "sha512": "b8D5q0HMYL85+vXzudS7VzTwANzOWJqA14EgMIIGd0YqZTbH8tOvk8ND1WZ2G4pEMtbvF8kYpf8kzTzo3g1Qqw==",
       "type": "package",
@@ -1088,36 +1126,30 @@
     "net8.0": [
       "Occt.NET >= 7.9.0",
       "Silk.NET.WebGPU >= 2.22.0",
+      "Silk.NET.WebGPU.Extensions.WGPU >= 2.22.0",
       "Silk.NET.WebGPU.Native.WGPU >= 2.22.0",
       "Silk.NET.Windowing >= 2.20.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\micha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Osprey\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
+      "projectUniqueName": "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
       "projectName": "SumCad",
-      "projectPath": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
-      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\micha\\RiderProjects\\SumCad\\SumCad\\obj\\",
+      "projectPath": "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\SumCad.csproj",
+      "packagesPath": "C:\\Users\\Osprey\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Osprey\\RiderProjects\\SumCad\\SumCad\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Osprey\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1130,6 +1162,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1141,6 +1178,10 @@
             "version": "[7.9.0, )"
           },
           "Silk.NET.WebGPU": {
+            "target": "Package",
+            "version": "[2.22.0, )"
+          },
+          "Silk.NET.WebGPU.Extensions.WGPU": {
             "target": "Package",
             "version": "[2.22.0, )"
           },
@@ -1169,7 +1210,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Osprey\\.dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

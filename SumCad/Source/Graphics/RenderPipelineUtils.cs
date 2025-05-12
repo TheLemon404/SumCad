@@ -3,22 +3,33 @@ using Silk.NET.WebGPU;
 
 namespace SumCad.Application;
 
-public unsafe class UnlitRenderPipeline
+public unsafe class RenderPipelineUtils
 {
-    private readonly GraphicsInstance graphicsInstance;
-    private RenderPipeline* renderPipeline;
-
-    public UnlitRenderPipeline(GraphicsInstance graphicsInstance)
+    public static RenderPipeline* Create(GraphicsInstance graphicsInstance, ShaderModule* shaderModule, string vertexFnName = "main_vs", string fragmentFnName = "main_fs")
     {
-        this.graphicsInstance = graphicsInstance;
-    }
-    public void Initialize()
-    {
-        ShaderModule* shaderModule = ShaderModuleUtils.CreateShaderModule(graphicsInstance, "unlit.wgsl");
-
+        VertexAttribute* vertexAttribute = stackalloc VertexAttribute[2];
+        
+        vertexAttribute[0].Format = VertexFormat.Float32x3;
+        vertexAttribute[0].ShaderLocation = 0;
+        vertexAttribute[0].Offset = 0;
+        
+        vertexAttribute[1].Format = VertexFormat.Float32x4;
+        vertexAttribute[1].ShaderLocation = 1;
+        vertexAttribute[1].Offset = sizeof(float) * 3;
+        
+        VertexBufferLayout layout = new VertexBufferLayout()
+        {
+            StepMode = VertexStepMode.Vertex,
+            Attributes = vertexAttribute,
+            AttributeCount = 2,
+            ArrayStride = 7 * sizeof(float)
+        };
+        
         VertexState vertexState = new VertexState();
         vertexState.Module = shaderModule;
-        vertexState.EntryPoint = (byte*)Marshal.StringToHGlobalAnsi("main_vs");
+        vertexState.EntryPoint = (byte*)Marshal.StringToHGlobalAnsi(vertexFnName);
+        vertexState.Buffers = &layout;
+        vertexState.BufferCount = 1;
 
         BlendState* blendState = stackalloc BlendState[1];
         blendState[0].Color = new BlendComponent()
@@ -41,7 +52,7 @@ public unsafe class UnlitRenderPipeline
         
         FragmentState fragmentState = new FragmentState();
         fragmentState.Module = shaderModule;
-        fragmentState.EntryPoint = (byte*)Marshal.StringToHGlobalAnsi("main_fs");
+        fragmentState.EntryPoint = (byte*)Marshal.StringToHGlobalAnsi(fragmentFnName);
         fragmentState.Targets = colorTargetState;
         fragmentState.TargetCount = 1;
 
@@ -60,14 +71,9 @@ public unsafe class UnlitRenderPipeline
             FrontFace = FrontFace.Ccw,
             Topology = PrimitiveTopology.TriangleList
         };
-
-        renderPipeline = graphicsInstance.WebGPU.DeviceCreateRenderPipeline(graphicsInstance.Device, descriptor);
+        
         Console.WriteLine("Created Render Pipeline (Unlit)");
-    }
 
-    public void Render()
-    {
-        graphicsInstance.WebGPU.RenderPassEncoderSetPipeline(graphicsInstance.CurrentRenderPassEncoder, renderPipeline);
-        graphicsInstance.WebGPU.RenderPassEncoderDraw(graphicsInstance.CurrentRenderPassEncoder, 3, 1, 0, 0);
+        return graphicsInstance.WebGPU.DeviceCreateRenderPipeline(graphicsInstance.Device, descriptor);
     }
 }

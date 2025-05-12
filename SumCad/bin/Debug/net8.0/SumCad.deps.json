@@ -10,6 +10,7 @@
         "dependencies": {
           "Occt.NET": "7.9.0",
           "Silk.NET.WebGPU": "2.22.0",
+          "Silk.NET.WebGPU.Extensions.WGPU": "2.22.0",
           "Silk.NET.WebGPU.Native.WGPU": "2.22.0",
           "Silk.NET.Windowing": "2.20.0"
         },
@@ -81,6 +82,18 @@
         },
         "runtime": {
           "lib/net5.0/Silk.NET.WebGPU.dll": {
+            "assemblyVersion": "2.22.0.0",
+            "fileVersion": "2.22.0.0"
+          }
+        }
+      },
+      "Silk.NET.WebGPU.Extensions.WGPU/2.22.0": {
+        "dependencies": {
+          "Silk.NET.Core": "2.22.0",
+          "Silk.NET.WebGPU": "2.22.0"
+        },
+        "runtime": {
+          "lib/net5.0/Silk.NET.WebGPU.Extensions.WGPU.dll": {
             "assemblyVersion": "2.22.0.0",
             "fileVersion": "2.22.0.0"
           }
@@ -266,6 +279,13 @@
       "sha512": "sha512-exCUhXxBWFlW8pV6krbf5K1ZwbhDtBM2qZa1HJa76CZ4RaMml5crmb1m+9qYERPhiQIEvK0EulCMs6CJ5p8bKQ==",
       "path": "silk.net.webgpu/2.22.0",
       "hashPath": "silk.net.webgpu.2.22.0.nupkg.sha512"
+    },
+    "Silk.NET.WebGPU.Extensions.WGPU/2.22.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zc7iC3H5UQzppwlfOtHFRMKp5ewYBA83L91lkQU7aCm0+BTs+VpQqgiz3iXlJydlAFwggac4li8aJ5rJya9QKA==",
+      "path": "silk.net.webgpu.extensions.wgpu/2.22.0",
+      "hashPath": "silk.net.webgpu.extensions.wgpu.2.22.0.nupkg.sha512"
     },
     "Silk.NET.WebGPU.Native.WGPU/2.22.0": {
       "type": "package",

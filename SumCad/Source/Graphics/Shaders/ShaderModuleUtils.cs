@@ -5,7 +5,7 @@ namespace SumCad.Application;
 
 public unsafe class ShaderModuleUtils
 { 
-    public static ShaderModule* CreateShaderModule(GraphicsInstance graphicsInstance, string shaderName)
+    public static ShaderModule* CreateShaderModule(GraphicsInstance graphicsInstance, string shaderName, string label = "")
     {
         string shaderCode = File.ReadAllText($"../../../Resources/Shaders/{shaderName}");
         
@@ -14,6 +14,7 @@ public unsafe class ShaderModuleUtils
         wgslDescriptor.Chain.SType = SType.ShaderModuleWgslDescriptor;
 
         ShaderModuleDescriptor descriptor = new ShaderModuleDescriptor();
+        descriptor.Label = (byte*)Marshal.StringToHGlobalAnsi(label);
         descriptor.NextInChain = (ChainedStruct*)&wgslDescriptor;
         
         ShaderModule* shaderModule = graphicsInstance.WebGPU.DeviceCreateShaderModule(graphicsInstance.Device, descriptor);

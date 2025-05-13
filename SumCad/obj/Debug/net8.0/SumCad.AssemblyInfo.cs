@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SumCad")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2fbb8c5e7d5b29575a7cda8c95775527bb90b18f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+916ef1a4154251dbaa8839e0f4a59824d2d708e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SumCad")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SumCad")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

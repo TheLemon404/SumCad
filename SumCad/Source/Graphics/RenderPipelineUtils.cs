@@ -5,7 +5,7 @@ namespace SumCad.Application;
 
 public unsafe class RenderPipelineUtils
 {
-    public static RenderPipeline* Create(GraphicsInstance graphicsInstance, ShaderModule* shaderModule, string vertexFnName = "main_vs", string fragmentFnName = "main_fs")
+    public static RenderPipeline* Create(GraphicsInstance graphicsInstance, ShaderModule* shaderModule, PipelineLayout* pipelineLayout = null, string vertexFnName = "main_vs", string fragmentFnName = "main_fs")
     {
         VertexAttribute* vertexAttribute = stackalloc VertexAttribute[2];
         
@@ -57,6 +57,7 @@ public unsafe class RenderPipelineUtils
         fragmentState.TargetCount = 1;
 
         RenderPipelineDescriptor descriptor = new RenderPipelineDescriptor();
+        descriptor.Layout = pipelineLayout;
         descriptor.Vertex = vertexState;
         descriptor.Fragment = &fragmentState;
         descriptor.Multisample = new MultisampleState()

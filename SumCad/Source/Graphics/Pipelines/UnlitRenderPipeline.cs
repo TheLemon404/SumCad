@@ -4,6 +4,7 @@ using System.Runtime.InteropServices.ComTypes;
 using Silk.NET.Maths;
 using Silk.NET.WebGPU;
 using SumCad.Application.Buffers;
+using SumCad.Application.Scene;
 
 namespace SumCad.Application;
 
@@ -14,12 +15,18 @@ public unsafe class UnlitRenderPipeline : IDisposable
     
     private Matrix4X4<float> transform = Matrix4X4<float>.Identity;
     private UniformBuffer<Matrix4X4<float>> transformBuffer;
-    private BindGroupLayout* transformBindGroupLayout; // Describes the data
-    private BindGroup* transformBindGroup; // The actual data
+
+    private Camera camera;
     
-    public UnlitRenderPipeline(GraphicsInstance graphicsInstance)
+    private BindGroupLayout* transformBindGroupLayout; // Describes the data
+    private BindGroupLayout* cameraBindGroupLayout; // Describes the data
+    private BindGroup* transformBindGroup; // The actual data
+    private BindGroup* cameraBindGroup; // The actual data
+    
+    public UnlitRenderPipeline(GraphicsInstance graphicsInstance, Camera camera)
     {
         this.graphicsInstance = graphicsInstance;
+        this.camera = camera;
     }
 
     public Matrix4X4<float> Transform
@@ -40,42 +47,78 @@ public unsafe class UnlitRenderPipeline : IDisposable
 
     private void CreateBindGroupLayouts()
     {
-        BindGroupLayoutEntry* bindGroupLayoutEntries = stackalloc BindGroupLayoutEntry[1];
-        bindGroupLayoutEntries[0] = new BindGroupLayoutEntry();
-        bindGroupLayoutEntries[0].Binding = 0;
-        bindGroupLayoutEntries[0].Visibility = ShaderStage.Vertex;
-        bindGroupLayoutEntries[0].Buffer = new BufferBindingLayout()
+        BindGroupLayoutEntry* transformBindGroupLayoutEntries = stackalloc BindGroupLayoutEntry[1];
+        
+        transformBindGroupLayoutEntries[0] = new BindGroupLayoutEntry();
+        transformBindGroupLayoutEntries[0].Binding = 0;
+        transformBindGroupLayoutEntries[0].Visibility = ShaderStage.Vertex;
+        transformBindGroupLayoutEntries[0].Buffer = new BufferBindingLayout()
         {
             Type = BufferBindingType.Uniform
         };
         
-        BindGroupLayoutDescriptor descriptor = new BindGroupLayoutDescriptor()
+        BindGroupLayoutDescriptor transformBindGroupLayoutDescriptor = new BindGroupLayoutDescriptor()
         {
-            Entries = bindGroupLayoutEntries,
+            Entries = transformBindGroupLayoutEntries,
             EntryCount = 1
         };
 
         transformBindGroupLayout =
-            graphicsInstance.WebGPU.DeviceCreateBindGroupLayout(graphicsInstance.Device, descriptor);
+            graphicsInstance.WebGPU.DeviceCreateBindGroupLayout(graphicsInstance.Device, transformBindGroupLayoutDescriptor);
+        
+        BindGroupLayoutEntry* cameraBindGroupLayoutEntries = stackalloc BindGroupLayoutEntry[1];
+        
+        cameraBindGroupLayoutEntries[0] = new BindGroupLayoutEntry();
+        cameraBindGroupLayoutEntries[0].Binding = 0;
+        cameraBindGroupLayoutEntries[0].Visibility = ShaderStage.Vertex;
+        cameraBindGroupLayoutEntries[0].Buffer = new BufferBindingLayout()
+        {
+            Type = BufferBindingType.Uniform
+        };
+        
+        BindGroupLayoutDescriptor cameraBindGroupLayoutDescriptor = new BindGroupLayoutDescriptor()
+        {
+            Entries = cameraBindGroupLayoutEntries,
+            EntryCount = 1
+        };
+
+        cameraBindGroupLayout =
+            graphicsInstance.WebGPU.DeviceCreateBindGroupLayout(graphicsInstance.Device, cameraBindGroupLayoutDescriptor);
     }
 
     private void CreateBindGroups()
     {
-        BindGroupEntry* bindGroupEntries = stackalloc BindGroupEntry[1];
+        BindGroupEntry* transformBindGroupEntries = stackalloc BindGroupEntry[1];
 
-        bindGroupEntries[0] = new BindGroupEntry();
-        bindGroupEntries[0].Binding = 0;
-        bindGroupEntries[0].Buffer = transformBuffer.Buffer;
-        bindGroupEntries[0].Size = transformBuffer.Size;
+        transformBindGroupEntries[0] = new BindGroupEntry();
+        transformBindGroupEntries[0].Binding = 0;
+        transformBindGroupEntries[0].Buffer = transformBuffer.Buffer;
+        transformBindGroupEntries[0].Size = transformBuffer.Size;
         
-        BindGroupDescriptor descriptor = new BindGroupDescriptor()
+        BindGroupDescriptor transformBindGroupDescriptor = new BindGroupDescriptor()
         {
             Layout = transformBindGroupLayout,
-            Entries = bindGroupEntries,
+            Entries = transformBindGroupEntries,
             EntryCount = 1
         };
         
-        transformBindGroup = graphicsInstance.WebGPU.DeviceCreateBindGroup(graphicsInstance.Device, descriptor);
+        transformBindGroup = graphicsInstance.WebGPU.DeviceCreateBindGroup(graphicsInstance.Device, transformBindGroupDescriptor);
+        
+        BindGroupEntry* cameraBindGroupEntries = stackalloc BindGroupEntry[1];
+
+        cameraBindGroupEntries[0] = new BindGroupEntry();
+        cameraBindGroupEntries[0].Binding = 0;
+        cameraBindGroupEntries[0].Buffer = camera.Buffer.Buffer;
+        cameraBindGroupEntries[0].Size = camera.Buffer.Size;
+        
+        BindGroupDescriptor cameraBindGroupDescriptor = new BindGroupDescriptor()
+        {
+            Layout = cameraBindGroupLayout,
+            Entries = cameraBindGroupEntries,
+            EntryCount = 1
+        };
+        
+        cameraBindGroup = graphicsInstance.WebGPU.DeviceCreateBindGroup(graphicsInstance.Device, cameraBindGroupDescriptor);
     }
     
     public void Initialize()
@@ -84,13 +127,14 @@ public unsafe class UnlitRenderPipeline : IDisposable
         
         ShaderModule* shaderModule = ShaderModuleUtils.CreateShaderModule(graphicsInstance, "unlit.wgsl", "Unlit Render Pipeline Shader");
 
-        BindGroupLayout** bindGroupLayouts = stackalloc BindGroupLayout*[1];
+        BindGroupLayout** bindGroupLayouts = stackalloc BindGroupLayout*[2];
         bindGroupLayouts[0] = transformBindGroupLayout;
+        bindGroupLayouts[1] = cameraBindGroupLayout;
         
         PipelineLayoutDescriptor pipelineLayoutDescriptor = new PipelineLayoutDescriptor()
         {
             BindGroupLayouts = bindGroupLayouts,
-            BindGroupLayoutCount = 1,
+            BindGroupLayoutCount = 2,
         };
 
         PipelineLayout* pipelineLayout =
@@ -106,9 +150,12 @@ public unsafe class UnlitRenderPipeline : IDisposable
 
     public void Render(VertexBuffer vertexBuffer, IndexBuffer? indexBuffer = null)
     {
+        camera.Update();
+        
         graphicsInstance.WebGPU.RenderPassEncoderSetPipeline(graphicsInstance.CurrentRenderPassEncoder, renderPipeline);
         
         graphicsInstance.WebGPU.RenderPassEncoderSetBindGroup(graphicsInstance.CurrentRenderPassEncoder, 0, transformBindGroup, 0, 0);
+        graphicsInstance.WebGPU.RenderPassEncoderSetBindGroup(graphicsInstance.CurrentRenderPassEncoder, 1, cameraBindGroup, 0, 0);
         
         graphicsInstance.WebGPU.RenderPassEncoderSetVertexBuffer(graphicsInstance.CurrentRenderPassEncoder, 0, vertexBuffer.Buffer, 0, vertexBuffer.Size);
 

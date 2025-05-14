@@ -1,5 +1,6 @@
 ﻿using Silk.NET.Maths;
 using SumCad.Application.Buffers;
+using SumCad.Application.Scene;
 
 namespace SumCad.Application;
 
@@ -12,7 +13,6 @@ public class Application
     public Application()
     {
         graphicsInstance = new GraphicsInstance();
-        unlitRenderPipeline = new UnlitRenderPipeline(graphicsInstance);
         
         buffer = new VertexBuffer(graphicsInstance);
         indexBuffer = new IndexBuffer(graphicsInstance);
@@ -22,6 +22,8 @@ public class Application
 
         graphicsInstance.OnInitialize += () =>
         {
+            unlitRenderPipeline = new UnlitRenderPipeline(graphicsInstance, new Camera(graphicsInstance));
+
             unlitRenderPipeline.Initialize();
             buffer.Initialize(new float[]
             {

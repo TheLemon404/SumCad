@@ -5,10 +5,12 @@ namespace SumCad.Application.Buffers;
 public unsafe class UniformBuffer<T> : IDisposable where T : unmanaged
 {    
     private readonly GraphicsInstance graphicsInstance;
+    private readonly string label;
 
-    public UniformBuffer(GraphicsInstance graphicsInstance)
+    public UniformBuffer(GraphicsInstance graphicsInstance, string label = "")
     {
         this.graphicsInstance = graphicsInstance;
+        this.label = label;
     }
 
     public WebGPUBuffer* Buffer { get; private set; }
